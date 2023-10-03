@@ -1,0 +1,28 @@
+export const linking = {
+  config: {
+    screens: {
+      Home: "/trang-chu",
+      News: "/tin-dai-hoi",
+      Article: "/tin-dai-hoi/:slug",
+      Profiles: "/ho-so-dai-bieu",
+      Programs: "/chuong-trinh",
+      SeatMaps: "/so-do-vi-tri",
+      SeatMapsTQ: "/so-do-cho-ngoi",
+      Documents: "/tai-lieu",
+      DocumentViewer: "/tai-lieu/:slug",
+      Container: "/diem-danh-1",
+      Container2: "/diem-danh-2",
+      Report: "/bao-cao",
+      Login: "/dang-nhap/:redirect?",
+      Checkin: "/checkin",
+      CheckinS1: "/checkin-1",
+      CheckinS2: "/checkin-2",
+      Vr: "/trien-lam-thuc-te-ao",
+      Info: "/thong-tin-dai-bieu",
+      CheckinOnline: "/checkin-online",
+      Discussions: "/tham-luan",
+      DiscussionViewer: "/tham-luan/:slug",
+      NoMatch: "*",
+    },
+  },
+};
