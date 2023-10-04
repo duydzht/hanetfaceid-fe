@@ -1,3 +1,1 @@
-export const STRAPI_ENDPOINT = !__DEV__
-  ? "https://qltuyenquang.daihoidoan.net"
-  : "http://localhost:1340";
+export const STRAPI_ENDPOINT = "http://103.143.142.67:1340";

@@ -4,14 +4,14 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "postinstall": "patch-package",
-    "start": "expo start",
+    "start": "expo start --port 7000",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
     "optimize": "npx expo-optimize",
     "build:web": "expo build:web -c --no-pwa",
-    "deploy": "scp -r ./web-build root@139.162.38.193:/web/tuyenquang_fe"
+    "deploy": "scp -r ./web-build root@103.143.142.67:/hanetfaceid_fe"
   },
   "dependencies": {
     "@expo-google-fonts/alfa-slab-one": "^0.2.2",
