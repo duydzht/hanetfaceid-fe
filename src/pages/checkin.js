@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { ImageBackground } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 import { View, Text, Image } from "dripsy";
 import AspectRatioImage from "../components/AspectRatioImage";
 import { StoreContext } from "../store";
@@ -7,9 +7,29 @@ import get from "lodash/get";
 import { STRAPI_ENDPOINT } from "../constants";
 import { socket, CHECKIN_EVENT } from "../webSocket";
 import { ADD_CHECKIN } from "../store/action";
+import Webcam from "react-webcam";
 
-const backgroungImg = require("../../assets/checkin.png");
+const backgroungImg = require("../../assets/banner-checkin-2.png");
 const logoImg = require("../../assets/logo_daihoi.png");
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  imageBackground: {
+    flex: 1,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Màu đen với độ trong suốt 50%
+  },
+});
+
+const videoConstraints = {
+  width: 1280,
+  height: 720,
+  facingMode: "user",
+};
 
 export default function Checkin() {
   const [
@@ -22,7 +42,7 @@ export default function Checkin() {
   useEffect(() => {
     socket.on(CHECKIN_EVENT, ({ data }) => {
       console.log(CHECKIN_EVENT, data);
-      
+
       dispatch({
         type: ADD_CHECKIN,
         payload: data,
@@ -39,7 +59,7 @@ export default function Checkin() {
   )}`;
 
   return (
-    <View style={{ flex: 1, maxWidth: '100%' }}>
+    <View style={{ flex: 1, maxWidth: "100%" }}>
       <ImageBackground
         source={backgroungImg}
         resizeMode="cover"
@@ -49,7 +69,7 @@ export default function Checkin() {
           <>
             <View sx={{ alignItems: "center", px: "$4" }}>
               <View sx={{ alignItems: "center", pt: "$5" }}>
-                <Text sx={{ color: "#007434", fontSize: 44, fontWeight: 500 }}>
+                <Text sx={{ color: "#fff", fontSize: 44, fontWeight: 500 }}>
                   {"CHÀO MỪNG ĐẠI BIỂU"}
                 </Text>
                 <Text
@@ -107,42 +127,67 @@ export default function Checkin() {
             </View>
           </>
         ) : (
-          <View style={{ flex: 1, alignItems: "center" }}>
-            <View style={{ flex: 1, paddingTop: 32 }}>
-              {/* <Image source={logoImg} style={{ width: 300, height: 201 }} /> */}
-            </View>
-            <View style={{ flex: 1 }}>
-              {/* <Text
+          <View style={styles.overlay}>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "30px",
+              }}
+            >
+              <View
                 style={{
-                  textAlign: "center",
-                  color: "#fff",
-                  fontSize: 50,
-                  lineHeight: 62,
-                  fontWeight: 700,
-                  fontFamily: "Cochin"
+                  height: "70vh",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                {
-                  "CHÀO MỪNG KỈ NIỆM\nNGÀY CHUYỂN ĐỔI SỐ QUỐC GIA"
-                }
-              </Text> */}
-            </View>
-            <View style={{ flex: 1, justifyContent: "flex-end" }}>
-              {/* <Text
-                style={{
-                  alignSelf: "flex-end",
-                  color: "#260fd1",
-                  fontSize: 40,
-                  paddingBottom: 30,
-                  fontWeight: 600,
-                  fontStyle: "italic",
-                }}
-              >
-                ĐOÀN KẾT - BẢN LĨNH - KHÁT VỌNG - TIÊN PHONG - SÁNG TẠO
-              </Text> */}
+                <Text
+                  style={{
+                    textAlign: "left",
+                    color: "#fff",
+                    fontSize: 40,
+                    lineHeight: 62,
+                    fontWeight: 700,
+                    fontFamily: "Cochin",
+                    marginLeft: 100,
+                  }}
+                >
+                  {"CHÀO MỪNG KỶ NIỆM\nNGÀY CHUYỂN ĐỔI SỐ QUỐC GIA"}
+                </Text>
+              </View>
             </View>
           </View>
         )}
+        <View
+          style={{
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            backgroundColor: "#fff",
+            width: 640,
+            height: 360,
+          }}
+        >
+          <Webcam
+            audio={false}
+            height={360}
+            screenshotFormat="image/jpeg"
+            width={640}
+            videoConstraints={videoConstraints}
+          >
+            {/* {({ getScreenshot }) => (
+                      <button
+                        onClick={() => {
+                          const imageSrc = getScreenshot();
+                        }}
+                      >
+                        Capture photo
+                      </button>
+                    )} */}
+          </Webcam>
+        </View>
       </ImageBackground>
     </View>
   );
