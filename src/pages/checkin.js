@@ -67,30 +67,33 @@ export default function Checkin() {
       >
         {checkinData ? (
           <>
-            <View sx={{ alignItems: "center", px: "$4" }}>
-              <View sx={{ alignItems: "center", pt: "$5" }}>
-                <Text sx={{ color: "#fff", fontSize: 44, fontWeight: 500 }}>
+            <View sx={{ alignItems: "start", px: "$4" }}>
+              <View sx={{ alignItems: "start", pt: "$5" }}>
+                <Text sx={{ color: "#fff", fontSize: 38, fontWeight: 500 }}>
                   {"CHÀO MỪNG ĐẠI BIỂU"}
                 </Text>
                 <Text
                   sx={{
-                    color: "#ff0000",
-                    fontSize: 50,
+                    color: "#ff4d00",
+                    fontSize: 44,
                     mt: "$2",
-                    fontWeight: 600,
+                    fontWeight: 700,
+                    marginTop: 80
                   }}
                 >
-                  {get(checkinData, "face.name", "")?.toUpperCase()}
+                  {/* {get(checkinData, "face.personName", "")?.toUpperCase()} */}
+                  {(checkinData?.personName)?.toUpperCase()}
                 </Text>
                 <Text
                   sx={{
                     color: "#007434",
-                    fontSize: 46,
+                    fontSize: 40,
                     mt: "$2",
                     fontWeight: 500,
+                    marginTop: 80
                   }}
                 >
-                  {get(checkinData, "face.title", "")?.toUpperCase()}
+                  {(checkinData.personTitle)?.toUpperCase()}
                 </Text>
               </View>
             </View>
@@ -147,7 +150,7 @@ export default function Checkin() {
                   style={{
                     textAlign: "left",
                     color: "#fff",
-                    fontSize: 40,
+                    fontSize: 44,
                     lineHeight: 62,
                     fontWeight: 700,
                     fontFamily: "Cochin",
