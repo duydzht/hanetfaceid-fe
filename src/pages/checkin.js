@@ -22,6 +22,7 @@ export default function Checkin() {
   useEffect(() => {
     socket.on(CHECKIN_EVENT, ({ data }) => {
       console.log(CHECKIN_EVENT, data);
+      
       dispatch({
         type: ADD_CHECKIN,
         payload: data,
@@ -114,14 +115,15 @@ export default function Checkin() {
               <Text
                 style={{
                   textAlign: "center",
-                  color: "#260fd1",
+                  color: "#ff4d00",
                   fontSize: 50,
                   lineHeight: 62,
-                  fontWeight: 600,
+                  fontWeight: 700,
+                  fontFamily: "Cochin"
                 }}
               >
                 {
-                  "CHÀO MỪNG ĐẠI HỘI\nĐẠI BIỂU ĐOÀN TNCS HỒ CHÍ MINH TỈNH HÀ TĨNH \nLẦN THỨ XVIII, NHIỆM KỲ 2022 - 2027"
+                  "CHÀO MỪNG KỈ NIỆM\nNGÀY CHUYỂN ĐỔI SỐ QUỐC GIA"
                 }
               </Text>
             </View>
