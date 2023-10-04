@@ -95,7 +95,7 @@ export default function Article({ route: { params: { slug = "" } = {} } }) {
 const styles = StyleSheet.create({
   a: {
     fontWeight: "300",
-    textDecorationLine: "underline",
+    color: "#FF3366", // make links coloured pink
   },
   img: {
     alignSelf: "center",

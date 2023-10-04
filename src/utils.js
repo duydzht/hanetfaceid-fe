@@ -61,16 +61,3 @@ export const convertCheckinData = (data, hasFace = true) => {
     },
   };
 };
-
-export const oddArrayNumberFromRange = (start, end) =>
-  Array(end - start + 1)
-    .fill()
-    .map((_, idx) => start + idx)
-    .filter((item) => item % 2 !== 0)
-    .reverse();
-
-export const evenArrayNumberFromRange = (start, end) =>
-  Array(end - start + 1)
-    .fill()
-    .map((_, idx) => start + idx)
-    .filter((item) => item % 2 === 0);

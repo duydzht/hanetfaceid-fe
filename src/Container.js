@@ -69,7 +69,7 @@ export default function Container(props) {
           <DelegateList width={mainWidth} height={CONTENT_HEIGHT} />
         </View>
         <View style={[styles.sidebar, { width: SIDEBAR_WIDTH }]}>
-          <Sidebar height={CONTENT_HEIGHT} width={SIDEBAR_WIDTH} area={1} />
+          <Sidebar height={CONTENT_HEIGHT} width={SIDEBAR_WIDTH} />
         </View>
       </View>
     </View>

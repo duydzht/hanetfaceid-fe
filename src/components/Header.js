@@ -7,7 +7,7 @@ const logoImg = require("../../assets/logo.png");
 
 export const HEADER_HEIGHT = scale(60);
 
-export default function Header({ showLogoutButton, onLogout }) {
+export default function Header({ showLgoutButton, onLogout }) {
   return (
     <View style={styles.header}>
       <View style={styles.headerLeft}>
@@ -18,10 +18,10 @@ export default function Header({ showLogoutButton, onLogout }) {
             marginLeft: scale(8),
             fontSize: scaleFont(16),
           }}
-        >{`ĐOÀN THANH NIÊN\nCỘNG SẢN HỒ CHÍ MINH TỈNH TUYÊN QUANG`}</Text>
+        >{`ĐOÀN THANH NIÊN\nCỘNG SẢN HỒ CHÍ MINH TỈNH HÀ TĨNH`}</Text>
       </View>
       <Text style={styles.headerText}>{"Hệ thống điểm danh"}</Text>
-      {showLogoutButton && (
+      {showLgoutButton && (
         <Pressable style={styles.logoutButton} onPress={onLogout}>
           <Text style={styles.logoutText}>Đăng xuất</Text>
         </Pressable>

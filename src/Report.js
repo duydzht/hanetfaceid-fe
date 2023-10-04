@@ -10,7 +10,7 @@ import { dayIsToday } from "./datetime";
 import ReportTable, { TYPE } from "./components/ReportTable";
 import HttpClient from "./httpClient";
 import { useAsyncStorage } from "@react-native-async-storage/async-storage";
-import { useLinkTo, useRoute, useLinkBuilder } from "@react-navigation/native";
+import { useLinkTo } from "@react-navigation/native";
 
 import {
   FETCH_DELEGATE_LIST_START,
@@ -73,7 +73,7 @@ export default function Report({ navigation }) {
   const checkAuth = async () => {
     try {
       const auth = JSON.parse((await getItem()) || {});
-      if (auth?.email === "daihoidoantuyenquang@gmail.com") {
+      if (auth?.email === "daihoidoanhatinh@gmail.com") {
         return auth;
       } else {
         return false;
@@ -108,7 +108,7 @@ export default function Report({ navigation }) {
         payload: auth,
       });
     } else {
-      linkTo("/dang-nhap/bao-cao");
+      linkTo("/dang-nhap");
     }
   }, [dispatch]);
 
@@ -156,7 +156,7 @@ export default function Report({ navigation }) {
 
   return (
     <View style={containerStyle}>
-      <Header showLogoutButton={user} onLogout={onLogout} />
+      <Header showLgoutButton={user} onLogout={onLogout} />
       <View style={contentStyle}>
         <View style={{ flex: 1 }}>
           <ReportTable type={TYPE.CHECKED_IN} data={checkedList} />

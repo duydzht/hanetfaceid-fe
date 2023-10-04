@@ -5,16 +5,14 @@ import Carousel from "react-native-reanimated-carousel";
 import { useLayout } from "../hooks/useLayout";
 import { useScale } from "../hooks/useScale";
 import { useLinkTo } from "@react-navigation/native";
-import Iframe from "react-iframe";
 
 const banner = require("../../assets/banner.jpeg");
-const checkinIcon = require("../../assets/checkin.png");
 const newsIcon = require("../../assets/news.png");
 const profileIcon = require("../../assets/profile.png");
 const programIcon = require("../../assets/program.png");
 const mapIcon = require("../../assets/map.png");
 const documentIcon = require("../../assets/document.png");
-const discussionsIcon = require("../../assets/discussions.png");
+const vrIcon = require("../../assets/vr.png");
 
 import { MENUS } from "../components/WebHeader";
 
@@ -45,9 +43,9 @@ const CATEGORIES = [
     path: MENUS.documents.path,
   },
   {
-    name: MENUS.discussions.name,
-    icon: discussionsIcon,
-    path: MENUS.discussions.path,
+    name: "TRIỂN LÃM THỰC TẾ ẢO",
+    icon: vrIcon,
+    path: "/trien-lam-thuc-te-ao",
   },
 ];
 
@@ -56,17 +54,6 @@ const CarouselItem = React.memo(({ width, height }) => {
     <Image
       source={banner}
       sx={{ width, height, borderRadius: [0, useScale(12)] }}
-    />
-  );
-});
-
-const CarouselVideoItem = React.memo(({ width, height }) => {
-  return (
-    <Iframe
-      url="https://drive.google.com/file/d/1CSWnlne89cS0BRvAOm2RplA8fcJSBYDD/preview"
-      position="absolute"
-      width={width}
-      height={height}
     />
   );
 });
@@ -125,17 +112,6 @@ export default function Home() {
 
   const categoryWidth = width - columnCount * columnGap;
 
-  const categories =
-    columnCount === 2
-      ? [
-          {
-            name: "ĐIỂM DANH",
-            icon: checkinIcon,
-            path: "/checkin-online",
-          },
-        ].concat(CATEGORIES)
-      : CATEGORIES;
-
   return (
     <DefaultLayout onContainerLayout={onContainerLayout} mt={"$3"}>
       {containerWidth > 0 && (
@@ -156,7 +132,7 @@ export default function Home() {
           marginTop: columnGap,
         }}
       >
-        {categories.map(({ name, icon, path }, index) => {
+        {CATEGORIES.map(({ name, icon, path }, index) => {
           return (
             <CategoryItem
               key={index}

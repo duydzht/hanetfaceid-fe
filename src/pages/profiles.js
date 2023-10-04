@@ -118,8 +118,6 @@ export default function Profiles() {
           }),
         },
       });
-      console.log("Profiles.data", data);
-      console.log("Profiles.pagination", pagination);
       setFaces(data);
       setPagination(pagination);
     } catch (error) {}
@@ -158,6 +156,7 @@ export default function Profiles() {
 
   const onChangeText = (value) => {
     setKeyword(value);
+    console.log("onChangeText.value", value);
     debounceSearch(value);
   };
 

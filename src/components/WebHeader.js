@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Text, View, Image, Pressable } from "dripsy";
 import { Entypo } from "@expo/vector-icons";
+import { useLayout } from "../hooks/useLayout";
 import { useRoute, useLinkBuilder, useLinkTo } from "@react-navigation/native";
+import { useScale } from "../hooks/useScale";
 import isUndefine from "lodash/isUndefined";
 
 import { linking } from "../linking";
@@ -35,15 +37,11 @@ export const MENUS = {
   },
   seatMaps: {
     name: "SƠ ĐỒ CHỖ NGỒI",
-    path: screens.SeatMapsTQ,
+    path: screens.SeatMaps,
   },
   documents: {
     name: "VĂN KIỆN ĐẠI HỘI",
     path: screens.Documents,
-  },
-  discussions: {
-    name: "THAM LUẬN",
-    path: screens.Discussions,
   },
 };
 
@@ -53,6 +51,8 @@ const WebHeaderContent = React.memo(
     const route = useRoute();
     const buildLink = useLinkBuilder();
     const linking = buildLink(route.name, route.params);
+
+    const marginLeftOfItem = useScale(40);
 
     return (
       <View>
@@ -65,7 +65,7 @@ const WebHeaderContent = React.memo(
         >
           <Image
             source={logo}
-            style={{ height: LOGO_HEIGHT, width: (LOGO_HEIGHT * 400) / 240 }}
+            style={{ height: LOGO_HEIGHT, width: (LOGO_HEIGHT * 300) / 189 }}
             resizeMode={"contain"}
           />
 
@@ -78,68 +78,41 @@ const WebHeaderContent = React.memo(
                 style={{
                   height: "100%",
                   flexDirection: "row",
-                  justifyContent: "space-between",
                 }}
               >
-                <View style={{ flexDirection: "row", flex: 1, flexGrow: 1 }}>
-                  {Object.values(MENUS).map(({ name, path }, index) => {
-                    const isActive = linking.startsWith(path);
-                    return (
-                      <Pressable
-                        onPress={() => linkTo(path)}
-                        key={index}
+                {Object.values(MENUS).map(({ name, path }, index) => {
+                  const isActive = linking.startsWith(path);
+                  return (
+                    <Pressable
+                      onPress={() => linkTo(path)}
+                      key={index}
+                      sx={{
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        ml: marginLeftOfItem,
+                        ...(isActive && {
+                          borderBottomColor: "$primary",
+                          borderBottomWidth: 2,
+                        }),
+                      }}
+                    >
+                      <Text
                         sx={{
-                          height: "100%",
-                          justifyContent: "center",
-                          paddingHorizontal: 7,
-                          alignItems: "center",
+                          color: "$black",
+                          fontWeight: "400",
+                          fontSize: 16,
                           ...(isActive && {
-                            borderBottomColor: "$primary",
-                            borderBottomWidth: 2,
+                            fontWeight: "700",
+                            color: "$primary",
                           }),
                         }}
                       >
-                        <Text
-                          sx={{
-                            color: "$black",
-                            fontWeight: "600",
-                            textAlign: "center",
-                            fontSize: 13,
-                            ...(isActive && {
-                              fontWeight: "600",
-                              color: "$primary",
-                            }),
-                          }}
-                        >
-                          {name}
-                        </Text>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-                <Pressable
-                  sx={{
-                    alignSelf: "center",
-                    justifyContent: "center",
-                    alignContent: "center",
-                    height: 44,
-                    px: "$4",
-                    bg: "$primary",
-                    borderRadius: 12,
-                    boxShadow: `1px 1px 4px rgba(0, 114, 177, 0.25)`,
-                  }}
-                  onPress={() => linkTo("/checkin-online")}
-                >
-                  <Text
-                    sx={{
-                      color: "$white",
-                      fontSize: 14,
-                      fontWeight: 500,
-                    }}
-                  >
-                    ĐIỂM DANH
-                  </Text>
-                </Pressable>
+                        {name}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
               </View>
             )}
           </View>

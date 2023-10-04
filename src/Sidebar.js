@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useCallback } from "react";
 import { View, StyleSheet } from "react-native";
-import { socket, CHECKIN_EVENT, CHECKIN_EVENT2 } from "./webSocket";
+import { socket, CHECKIN_EVENT } from "./webSocket";
 import HttpClient from "./httpClient";
 import { StoreContext } from "./store";
 import { scale, convertCheckinData } from "./utils";
-import QrCodeDetection from "./components/QrCodeDetection";
 
 import {
   FETCH_CHECKIN_LIST_START,
@@ -13,7 +12,7 @@ import {
   UPDATE_DELEGATE_STATUS,
 } from "./store/action";
 import SectionHeader from "./components/SectionHeader";
-// import FaceDetection from "./components/FaceDetection";
+import FaceDetection from "./components/FaceDetection";
 import FaceRecognition from "./components/FaceRecognition";
 import SummaryView from "./components/SummaryView";
 
@@ -29,7 +28,7 @@ let styles = StyleSheet.create({
   },
 });
 
-export default function Sidebar({ height, width, area }) {
+export default function Sidebar({ height, width }) {
   const [
     {
       checkin: { current: checkinData },
@@ -55,20 +54,17 @@ export default function Sidebar({ height, width, area }) {
   }, []);
 
   useEffect(() => {
-    socket.on(
-      Number(area) === 2 ? CHECKIN_EVENT2 : CHECKIN_EVENT,
-      ({ data }) => {
-        console.log("Sidebar.data", data);
-        dispatch({
-          type: ADD_CHECKIN,
-          payload: data,
-        });
-        dispatch({
-          type: UPDATE_DELEGATE_STATUS,
-          payload: convertCheckinData(data, false),
-        });
-      }
-    );
+    socket.on(CHECKIN_EVENT, ({ data }) => {
+      console.log(CHECKIN_EVENT, data);
+      dispatch({
+        type: ADD_CHECKIN,
+        payload: data,
+      });
+      dispatch({
+        type: UPDATE_DELEGATE_STATUS,
+        payload: convertCheckinData(data, false),
+      });
+    });
     // fetchData();
   }, [dispatch]);
 
@@ -77,7 +73,7 @@ export default function Sidebar({ height, width, area }) {
       <SummaryView />
       <View style={styles.content}>
         <SectionHeader title={"Ảnh nhận diện"} borderTop={true} />
-        <QrCodeDetection width={width} area={area} />
+        <FaceDetection width={width} />
         <SectionHeader title={"Thông tin dữ liệu"} />
         <FaceRecognition
           width={width}

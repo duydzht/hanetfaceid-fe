@@ -13,7 +13,7 @@ export default function Container({
       onLayout={onLayout}
       sx={{
         flexGrow: 1,
-        width: useFullScreen ? "100%" : ["100%", "70%"],
+        width: useFullScreen ? "100%" : ["100%", "66%"],
         alignSelf: "center",
         bg,
         mt,

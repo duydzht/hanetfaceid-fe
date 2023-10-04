@@ -18,8 +18,7 @@ import { LOGIN_SUCCESS } from "./store/action";
 
 const logoImg = require("../assets/logo.png");
 
-export default function Login({ route: { params: { redirect = "" } = {} } }) {
-  console.log("Login.redirect", redirect);
+export default function Login() {
   const { getItem, setItem } = useAsyncStorage("@user");
   const linkTo = useLinkTo();
   const [{}, dispatch] = useContext(StoreContext);
@@ -40,21 +39,19 @@ export default function Login({ route: { params: { redirect = "" } = {} } }) {
     alignItems: "center",
   };
 
-  const [email, setEmail] = useState(
-    __DEV__ ? "daihoidoantuyenquang@gmail.com" : ""
-  );
-  const [password, setPassword] = useState(__DEV__ ? "Tuyenquang@123" : "");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const user = JSON.parse((await getItem()) || {});
-        if (user?.email === "daihoidoantuyenquang@gmail.com") {
+        if (user?.email === "daihoidoanhatinh@gmail.com") {
           dispatch({
             type: LOGIN_SUCCESS,
             payload: user,
           });
-          linkTo(`/${redirect}`);
+          linkTo("/bao-cao");
         }
       } catch (error) {}
     };
@@ -62,10 +59,7 @@ export default function Login({ route: { params: { redirect = "" } = {} } }) {
   }, []);
 
   const onLogin = useCallback(async () => {
-    if (
-      email === "daihoidoantuyenquang@gmail.com" &&
-      password === "Tuyenquang@123"
-    ) {
+    if (email === "daihoidoanhatinh@gmail.com" && password === "Hatinh@123") {
       await setItem(
         JSON.stringify({
           email,
@@ -79,7 +73,7 @@ export default function Login({ route: { params: { redirect = "" } = {} } }) {
           password,
         },
       });
-      linkTo(`/${redirect}`);
+      linkTo("/bao-cao");
     } else {
       alert("Đăng nhập thất bại, vui lòng kiểm tra Email và Mật khẩu");
     }
@@ -90,9 +84,7 @@ export default function Login({ route: { params: { redirect = "" } = {} } }) {
       <Header />
       <View style={contentStyle}>
         <Image source={logoImg} style={styles.logo} />
-        <Text
-          style={styles.title}
-        >{`ĐOÀN TNCS HỒ CHÍ MINH TỈNH TUYÊN QUANG`}</Text>
+        <Text style={styles.title}>{`ĐOÀN TNCS HỒ CHÍ MINH TỈNH HÀ TĨNH`}</Text>
         <TextInput
           numberOfLines={1}
           style={styles.input}

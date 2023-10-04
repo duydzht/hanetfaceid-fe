@@ -4,140 +4,85 @@ import DefaultLayout from "../layouts/default";
 
 const DATA = [
   {
-    title: "NGÀY 14/9/2022",
+    title: "NGÀY 15/8/2022",
     sections: [
       {
-        sectionTitle: "PHIÊN THỨ NHẤT (Từ 6h30' đến 11h30')",
+        sectionTitle: "Buổi chiều: PHIÊN THỨ NHẤT (Từ 14h00’ đến 17h30’)",
         sectionItems: [
           {
-            time: "6h30'-7h15'",
+            time: "14h00 - 14h15",
+            content: ["Ổn định tổ chức, văn nghệ"],
+          },
+          {
+            time: "14h15 - 14h25",
+            content: ["Nghi thức chào cờ"],
+          },
+          {
+            time: "14h25 - 14h35",
+            content: ["Tuyên bố lý do, giới thiệu đại biểu"],
+          },
+          {
+            time: "14h35 - 14h45",
             content: [
-              "Dâng hương Đền thờ Bác Hồ, viếng Đài tưởng niệm các Anh hùng liệt sỹ.",
+              "Bầu Đoàn Chủ tịch, Đoàn Thư ký, Ban Thẩm tra tư cách đại biểu",
             ],
           },
           {
-            time: "7h15'-7h30'",
-            content: ["Ổn định tổ chức."],
+            time: "14h45 - 14h55",
+            content: ["Thông qua chương trình, nội quy Đại hội"],
           },
           {
-            time: "7h30'-7h35'",
-            content: ["Nghi lễ Chào cờ."],
+            time: "14h55 - 15h05",
+            content: ["Báo cáo thẩm tra tư cách đại biểu"],
           },
           {
-            time: "7h35'-7h40'",
-            content: ["Tuyên bố lý do, giới thiệu đại biểu."],
-          },
-          {
-            time: "7h40'-8h00'",
+            time: "15h05 - 15h15",
             content: [
-              "Bầu Đoàn Chủ tịch, Đoàn Thư ký Đại hội, Bầu Ban Thẩm tra tư cách đại biểu.",
+              "Báo cáo các nội dung trọng tâm của Dự thảo báo cáo chính trị",
             ],
           },
           {
-            time: "8h00'-8h05'",
-            content: ["Thông qua chương trình làm việc của Đại hội."],
+            time: "15h15 - 15h30",
+            content: ["Báo cáo kiểm điểm Ban Chấp hành nhiệm kỳ 2017 - 2022"],
           },
           {
-            time: "8h05'-8h10'",
-            content: ["Thông qua Nội quy, Quy chế làm việc của Đại hội."],
+            time: "15h30 - 16h00",
+            content: ["Bầu Ban Chấp hành Tỉnh đoàn khóa XVIII"],
           },
           {
-            time: "8h10'-8h15'",
-            content: ["Báo cáo kết quả thẩm tra tư cách đại biểu."],
-          },
-          {
-            time: "8h15'-8h30'",
+            time: "16h00 - 17h00",
             content: [
-              "Báo cáo kiểm điểm của Ban Chấp hành Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang khóa XV, nhiệm kỳ 2017-2022 và định hướng thảo luận.",
-            ],
-          },
-          {
-            time: "8h30'-8h40'",
-            content: [
-              "Báo cáo tổng hợp ý kiến gửi về trước Đại hội tham gia vào văn kiện của Đại hội đại biểu toàn quốc Đoàn TNCS Hồ Chí Minh lần thứ XII, nhiệm kỳ 2022-2027, văn kiện Đại hội Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang lần thứ XVI, nhiệm kỳ 2022-2027, Điều lệ Đoàn khóa XI (sửa đổi).",
+              "Tổ chức 03 diễn đàn thảo luận:",
+              "Diễn đàn 1: Công tác xây dựng tổ chức Đoàn, tham gia xây dựng Đảng, mở rộng mặt trận đoàn kết tập hợp thanh niên",
+              "Diễn đàn 2: Phát huy vai trò xung kích, sáng tạo của thanh niên trên các lĩnh vực của đời sống xã hội",
+              "Diễn đàn 3: Đồng hành, hỗ trợ thanh niên khởi nghiệp, lập nghiệp, phát triển kỹ năng xã hội",
             ],
           },
 
           {
-            time: "8h40'-10h10'",
+            time: "17h00 - 17h10",
             content: [
-              "Diễn đàn thảo luận, đóng góp ý kiến vào các văn kiện của Đại hội, Điều lệ Đoàn khóa XI (sửa đổi).",
+              "Công bố kết quả bầu cử Ban Chấp hành Tỉnh đoàn khóa XVIII",
             ],
           },
           {
-            time: "10h10'-10h45'",
-            content: [
-              "Bầu Ban Chấp hành Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang khóa XVI, nhiệm kỳ 2022-2027.",
-            ],
+            time: "17h10 - 17h15",
+            content: ["Kết thúc phiên thứ nhất "],
           },
           {
-            time: "10h45’-11h00’",
-            content: ["Công tác thi đua khen thưởng."],
-          },
-          {
-            time: "11h00'-11h05'",
-            content: [
-              "Công bố kết quả bầu cử Ban Chấp hành Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang khóa XVI, nhiệm kỳ 2022-2027.",
-            ],
-          },
-          {
-            time: "11h05'-11h30'",
-            content: [
-              "Bầu Bí thư Tỉnh đoàn Tuyên Quang khóa XVI, nhiệm kỳ 2022-2027, Công bố kết quả bầu cử",
-            ],
+            time: "17h15 - 17h30",
+            content: ["Tập duyệt nghi lễ Đại hội"],
           },
         ],
       },
       {
-        // showTime: true,
-        sectionTitle: "PHIÊN THỨ HAI (Từ 14h00' đến 17h00')",
+        showTime: true,
+        sectionTitle: "Buổi tối (Từ 20h00’ đến 21h30’)",
         sectionItems: [
           {
-            time: "14h00'-15h00'",
+            time: "20h00 - 21h30",
             content: [
-              "Hội nghị Ban Chấp hành Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang khóa XVI, nhiệm kỳ 2022-2027 lần thứ nhất.",
-            ],
-          },
-          {
-            time: "15h00'-15h05’",
-            content: [
-              "Mời Đoàn Chủ tịch lên điều hành Đại hội, Đoàn thư ký lên làm việc.",
-            ],
-          },
-          {
-            time: "15h05'-15h10'",
-            content: ["Tuyên bố lý do, giới thiệu đại biểu."],
-          },
-          {
-            time: "15h10'-15h15'",
-            content: ["Báo cáo tình hình đại biểu dự Đại hội."],
-          },
-          {
-            time: "15h15'-15h25'",
-            content: [
-              "Báo cáo kết quả phiên họp thứ nhất Ban Chấp hành Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang khóa XVI, nhiệm kỳ 2022-2027.",
-            ],
-          },
-          {
-            time: "15h25’-15h40’",
-            content: [
-              "Báo cáo tổng hợp ý kiến đóng góp vào văn kiện của Đại hội đại biểu toàn quốc Đoàn TNCS Hồ Chí Minh lần thứ XII, nhiệm kỳ 2022-2027, văn kiện Đại hội Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang lần thứ XVI, nhiệm kỳ 2022-2027, Điều lệ Đoàn khóa XI (sửa đổi)",
-            ],
-          },
-          {
-            time: "15h40'-16h10'",
-            content: [
-              "Bầu Đoàn đại biểu chính thức và dự khuyết dự Đại hội đại biểu toàn quốc Đoàn TNCS Hồ Chí Minh lần thứ XII, nhiệm kỳ 2022-2027.",
-            ],
-          },
-          {
-            time: "16h10'-16h45'",
-            content: ["Tham luận"],
-          },
-          {
-            time: "16h45'-17h00'",
-            content: [
-              "Báo cáo kết quả bầu cử Đoàn đại biểu dự Đại hội đại biểu toàn quốc Đoàn TNCS Hồ Chí Minh lần thứ XII, nhiệm kỳ 2022-2027.",
+              "Lễ Tuyên dương các công trình và gương thanh niên tiêu biểu nhiệm kỳ 2017 - 2022",
             ],
           },
         ],
@@ -145,104 +90,176 @@ const DATA = [
     ],
   },
   {
-    title: "NGÀY 15/9/2022",
+    title: "NGÀY 16/8/2022",
     sections: [
       {
-        sectionTitle: "PHIÊN THỨ 3 (Từ 7h00' đến 11h30')",
+        sectionTitle: "Buổi sáng PHIÊN THỨ HAI (Từ 7h00’ đến 11h30’)",
         sectionItems: [
           {
-            time: "7h00'-7h30'",
-            content: ["Ổn định tổ chức."],
+            time: "7h00 - 7h15",
+            content: ["Ổn định tổ chức, chiếu phóng sự"],
           },
           {
-            time: "7h30'-7h55'",
-            content: ["Chương trình nghệ thuật."],
+            time: "7h15 - 7h45",
+            content: ["Chương trình nghệ thuật chào mừng"],
           },
           {
-            time: "7h55'-8h00'",
-            content: ["Nghi lễ chào cờ."],
+            time: "7h45 - 7h55",
+            content: ["Nghi thức chào cờ"],
           },
           {
-            time: "8h00'-8h05'",
+            time: "7h55 - 8h05",
             content: [
-              "Mời Đoàn Chủ tịch lên điều hành Đại hội, Đoàn thư ký lên làm việc.",
+              "Báo cáo tình hình đại biểu tham dự Đại hội và kết quả phiên làm việc thứ nhất",
             ],
           },
           {
-            time: "8h05'-8h10'",
-            content: ["Báo cáo tình hình đại biểu dự Đại hội."],
+            time: "8h05 - 8h15",
+            content: ["Diễn văn Khai mạc Đại hội"],
           },
           {
-            time: "8h10'-8h25'",
-            content: ["Phát biểu của Đoàn Chủ tịch Đại hội."],
+            time: "8h15 - 8h30",
+            content: ["Đoàn đại biểu thiếu nhi chào mừng Đại hội"],
           },
           {
-            time: "8h25'-8h35'",
-            content: ["Đoàn thiếu nhi chào mừng Đại hội."],
-          },
-          {
-            time: "8h35'-8h50'",
+            time: "8h30 - 8h55",
             content: [
-              "Trình bày tóm tắt dự thảo Báo cáo chính trị trình Đại hội.",
+              "Tóm tắt Dự thảo Báo cáo chính trị của Ban Chấp hành Tỉnh đoàn khóa XVII",
             ],
           },
           {
-            time: "8h50'-9h00'",
+            time: "8h55 - 9h30",
+            content: ["Tham luận tại Hội trường"],
+          },
+          {
+            time: "9h30 - 9h45",
+            content: ["Phát biểu chỉ đạo của Lãnh đạo tỉnh"],
+          },
+          {
+            time: "9h45 - 9h50",
             content: [
-              "Phóng sự một số kết quả nổi bật công tác Đoàn và phong trào Thanh thiếu nhi tỉnh Tuyên Quang nhiệm kỳ 2017-2022.",
+              "Trao tặng bức trướng của Tỉnh ủy - HĐND -UBND - UBMTTQ tỉnh Hà Tĩnh cho Đoàn TNCS Hồ Chí Minh tỉnh",
             ],
           },
           {
-            time: "9h00'-9h20'",
-            content: ["Tham luận."],
+            time: "9h50 - 10h05",
+            content: ["Phát biểu chỉ đạo của Lãnh đạo Trung ương Đoàn"],
           },
           {
-            time: "9h20'-9h40'",
-            content: ["Phát biểu chỉ đạo của Thường trực Tỉnh ủy."],
-          },
-          {
-            time: "9h40'-10h00'",
-            content: ["Phát biểu chỉ đạo của Ban Bí thư Trung ương Đoàn."],
-          },
-          {
-            time: "10h00'-10h20'",
+            time: "10h05 - 10h10",
             content: [
-              "Báo cáo kết quả kỳ họp thứ nhất Hội nghị Ban Chấp hành Đoàn TNCS Hồ Chí Minh tỉnh Tuyên Quang khóa XVI, BCH khóa mới ra mắt Đại hội.",
+              "Trao tặng cờ thi đua của Chính phủ cho Đoàn TNCS Hồ Chí Minh tỉnh Hà Tĩnh",
             ],
           },
           {
-            time: "10h20’-10h35'",
-            content: ["Nghỉ giải lao, chụp ảnh lưu niệm."],
+            time: "10h10 - 10h35",
+            content: ["Bầu trực tiếp chức danh Bí thư Tỉnh đoàn khóa XVIII"],
           },
           {
-            time: "10h35'-10h45'",
+            time: "10h35 - 10h50",
+            content: ["Đại hội giải lao, chụp ảnh lưu niệm"],
+          },
+          {
+            time: "10h50 - 11h10",
             content: [
-              "Báo cáo kết quả bầu Đoàn Đại biểu dự Đại hội đại biểu toàn quốc Đoàn TNCS Hồ Chí Minh lần thứ XII, nhiệm kỳ 2022-2027, Đoàn đại biểu ra mắt Đại hội.",
+              "Công bố kết quả bầu cử Bí thư Tỉnh đoàn và ra mắt Ban Chấp hành Tỉnh đoàn khoá XVIII",
             ],
           },
           {
-            time: "10h45'-11h05'",
-            content: ["Công tác thi đua, khen thưởng."],
-          },
-          {
-            time: "11h05'-11h15'",
+            time: "11h10 - 11h20",
             content: [
-              "Chia tay các đồng chí Ủy viên Ban Chấp hành khóa XV không tham gia Ban Chấp hành khóa XVI",
+              "Tặng quà các đồng chí Uỷ viên Ban Chấp hành Tỉnh đoàn khoá XVII không tái cử",
             ],
           },
           {
-            time: "11h15'-11h20'",
-            content: ["Thông qua Nghị quyết Đại hội."],
+            time: "11h20 - 11h30",
+            content: ["Kết thúc phiên thứ hai"],
+          },
+        ],
+      },
+      {
+        showTime: true,
+        sectionTitle:
+          "Buổi chiều HỘI NGHỊ BAN CHẤP HÀNH LẦN THỨ NHẤT (Từ 13h30’ đến 14h20’)",
+        sectionItems: [
+          {
+            time: "13h30 - 14h20",
+            content: ["HỘI NGHỊ BAN CHẤP HÀNH LẦN THỨ NHẤT"],
+          },
+        ],
+      },
+      {
+        sectionTitle: "Buổi chiều PHIÊN THỨ BA (từ 14h20’ đến 17h15’)",
+        sectionItems: [
+          {
+            time: "14h20 - 14h30",
+            content: ["Ổn định tổ chức"],
           },
           {
-            time: "11h20'-11h25'",
-            content: ["Bế mạc Đại hội."],
+            time: "14h30 - 14h40",
+            content: ["Tuyên bố lý do, giới thiệu đại biểu"],
           },
           {
-            time: "11h25'-11h30'",
+            time: "14h40 - 14h45",
             content: [
-              "Nghi lễ chào cờ và bài hát “Như có Bác Hồ trong ngày vui đại thắng”.",
+              "Báo cáo tình hình đại biểu và kết quả Hội nghị Ban chấp hành lần thứ nhất",
             ],
+          },
+          {
+            time: "14h45 - 15h00",
+            content: [
+              "Báo cáo tổng hợp ý kiến đóng góp vào dự thảo văn kiện trình Đại hội Đoàn toàn quốc lần thứ XII và Dự thảo sửa đổi, bổ sung Điều lệ Đoàn khóa XI",
+            ],
+          },
+          {
+            time: "15h00 - 15h25",
+            content: ["Tham luận tại Hội trường"],
+          },
+          {
+            time: "15h25 - 15h45",
+            content: [
+              "Bầu Đoàn đại biểu chính thức dự Đại hội Đoàn toàn quốc lần thứ XII",
+            ],
+          },
+          {
+            time: "15h45 - 16h00",
+            content: ["Đại hội giải lao"],
+          },
+          {
+            time: "16h00 - 16h05",
+            content: [
+              "Công bố kết quả bầu cử Đoàn đại biểu dự Đại hội Đoàn toàn quốc lần thứ XII",
+            ],
+          },
+          {
+            time: "16h05 - 16h35",
+            content: [
+              "Bầu đại biểu dự khuyết dự Đại hội Đoàn toàn quốc lần thứ XII",
+            ],
+          },
+          {
+            time: "16h35 - 16h40",
+            content: [
+              "Công bố kết quả bầu cử Đoàn đại biểu dự khuyết dự Đại hội Đoàn toàn quốc lần thứ XII",
+            ],
+          },
+          {
+            time: "16h40 - 16h45",
+            content: [
+              "Ra mắt Đoàn Đại biểu dự Đại hội Đoàn toàn quốc lần thứ XII",
+            ],
+          },
+          {
+            time: "16h45 - 17h00",
+            content: ["Thông qua dự thảo Nghị quyết Đại hội"],
+          },
+          {
+            time: "17h00 - 17h10",
+            content: ["Diễn văn Bế mạc Đại hội"],
+          },
+          {
+            time: "17h10 - 17h15",
+            content: ["Nghi thức chào cờ"],
           },
         ],
       },

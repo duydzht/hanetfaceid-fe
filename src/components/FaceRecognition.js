@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { scale, scaleFontVertical } from "../utils";
+import { scale, scaleFont, scaleFontVertical } from "../utils";
 import Colors from "../colors";
 import get from "lodash/get";
 import { STRAPI_ENDPOINT } from "../constants";
@@ -107,7 +107,7 @@ export const Person = ({ checkinData }) => {
 
 export default function FaceRecognition({ width, checkinData }) {
   const isStranger = checkinData && !checkinData?.face;
-  const IMAGE_SIZE = width / 2.5;
+  const IMAGE_SIZE = width / 2;
   return (
     <View style={styles.info}>
       <FaceImage

@@ -93,6 +93,8 @@ const SeatMapRow = ({ total = 22, rowLabel = "Q", left, right }) => {
     [leftSeatNames, rightSeatNames]
   );
 
+  console.log("expandedRow", expandedRow);
+
   return (
     <View style={{ flexDirection: "row" }}>
       <View>

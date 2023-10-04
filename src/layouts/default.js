@@ -14,9 +14,8 @@ import { MENUS, HEADER_HEIGHT } from "../components/WebHeader";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useRoute, useLinkBuilder, useLinkTo } from "@react-navigation/native";
 import { useUpdateEffect } from "ahooks";
-import { useLayout } from "../hooks/useLayout";
 
-import { useFontSize } from "../hooks/useFontSize";
+import { useLayout } from "../hooks/useLayout";
 
 const MenuItem = ({ name, isActive, onPress }) => {
   return (
@@ -58,7 +57,6 @@ const DefaultLayout = forwardRef(
     const buildLink = useLinkBuilder();
     const linking = buildLink(route.name, route.params);
     const activePath = useRef(null);
-    const fontSize = useFontSize();
 
     const [showFullMenu, setShowFullMenu] = useState(undefined);
 
@@ -119,30 +117,6 @@ const DefaultLayout = forwardRef(
               />
             );
           })}
-          {/* <Pressable
-            sx={{
-              justifyContent: "center",
-              alignItems: "center",
-              px: "$4",
-              py: "$3",
-              bg: "$primary",
-              marginHorizontal: 12,
-              borderRadius: 12,
-              boxShadow: `1px 1px 4px rgba(0, 114, 177, 0.1)`,
-              mt: "$4",
-            }}
-            onPress={() => linkTo("/checkin-online")}
-          >
-            <Text
-              sx={{
-                color: "$white",
-                fontSize: fontSize(18),
-                fontWeight: 600,
-              }}
-            >
-              ĐIỂM DANH
-            </Text>
-          </Pressable> */}
         </View>
       );
     }, []);

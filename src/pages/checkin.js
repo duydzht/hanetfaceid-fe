@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Dimensions } from "react-native";
+import { ImageBackground } from "react-native";
 import { View, Text, Image } from "dripsy";
 import AspectRatioImage from "../components/AspectRatioImage";
 import { StoreContext } from "../store";
@@ -8,15 +8,8 @@ import { STRAPI_ENDPOINT } from "../constants";
 import { socket, CHECKIN_EVENT } from "../webSocket";
 import { ADD_CHECKIN } from "../store/action";
 
-const { width, height } = Dimensions.get("screen");
-
-const SCREEN_HEIGHT = height;
-
-const MAX_IMAGE_HEIGHT = SCREEN_HEIGHT / 3;
-
+const backgroungImg = require("../../assets/checkin.png");
 const logoImg = require("../../assets/logo_daihoi.png");
-const bgBottomLeft = require("../../assets/bg_bottom_left.png");
-const bgTopRight = require("../../assets/bg_top_right.png");
 
 export default function Checkin() {
   const [
@@ -28,7 +21,7 @@ export default function Checkin() {
 
   useEffect(() => {
     socket.on(CHECKIN_EVENT, ({ data }) => {
-      console.log(CHECKIN_EVENT, JSON.stringify(data));
+      console.log(CHECKIN_EVENT, data);
       dispatch({
         type: ADD_CHECKIN,
         payload: data,
@@ -44,106 +37,111 @@ export default function Checkin() {
     ""
   )}`;
 
-  const name = get(checkinData, "face.name", "")?.toUpperCase();
-
-  const title = get(checkinData, "face.title", "")?.toUpperCase();
-
   return (
-    <View sx={{ height: SCREEN_HEIGHT, bg: "#F0FBFF" }}>
-      <Image
-        source={bgBottomLeft}
-        style={{ position: "absolute", left: 0, bottom: 0, height, width }}
-      />
-      <Image
-        source={bgTopRight}
-        style={{ position: "absolute", top: 0, right: 0, height, width }}
-      />
-      <View sx={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text
-          sx={{
-            color: "#E01419",
-            fontSize: 80,
-            fontFamily: "AlfaSlabOne_400Regular",
-          }}
-        >
-          CHÀO MỪNG
-        </Text>
-      </View>
-      <View sx={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
-        <View sx={{ flex: 1, alignItems: "flex-end" }}>
-          <Image
-            source={logoImg}
-            style={{
-              width: (240 * MAX_IMAGE_HEIGHT) / 400,
-              height: MAX_IMAGE_HEIGHT,
-              boxShadow: `0px 8px 18px rgba(0, 114, 177, 0.25)`,
-            }}
-          />
-        </View>
-        <View
-          sx={{
-            flex: 1.5,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text
-            sx={{
-              color: "#015E35",
-              fontSize: 60,
-              fontWeight: 200,
-              fontFamily: "AlfaSlabOne_400Regular",
-            }}
-          >
-            ĐẠI BIỂU
-          </Text>
-          <Text
-            sx={{
-              color: "#07529D",
-              fontSize: 40,
-              mt: "$5",
-              fontFamily: "AlfaSlabOne_400Regular",
-            }}
-          >
-            {name}
-          </Text>
-          <Text
-            sx={{
-              color: "#07529D",
-              fontSize: 32,
-              mt: "$3",
-              fontFamily: "AlfaSlabOne_400Regular",
-              textAlign: "center",
-            }}
-          >
-            {title}
-          </Text>
-        </View>
-        <View sx={{ flex: 1 }}>
-          <AspectRatioImage
-            uri={avatarUri}
-            aspectHeight={MAX_IMAGE_HEIGHT}
-            style={{
-              boxShadow: `0px 8px 18px rgba(0, 114, 177, 0.25)`,
-            }}
-          />
-        </View>
-      </View>
-      <View sx={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text
-          sx={{
-            textAlign: "center",
-            color: "#07529D",
-            fontSize: 32,
-            fontWeight: 400,
-            fontFamily: "AlfaSlabOne_400Regular",
-          }}
-        >
-          {
-            "THAM DỰ ĐẠI HỘI ĐẠI BIỂU ĐOÀN TNCS HỒ CHÍ MINH TỈNH TUYÊN QUANG\nLẦN THỨ XVI, NHIỆM KỲ 2022-2027"
-          }
-        </Text>
-      </View>
+    <View style={{ flex: 1 }}>
+      <ImageBackground
+        source={backgroungImg}
+        resizeMode="cover"
+        style={{ flex: 1 }}
+      >
+        {checkinData?.face ? (
+          <>
+            <View sx={{ alignItems: "center", px: "$4" }}>
+              <View sx={{ alignItems: "center", pt: "$5" }}>
+                <Text sx={{ color: "#007434", fontSize: 44, fontWeight: 500 }}>
+                  {"CHÀO MỪNG ĐẠI BIỂU"}
+                </Text>
+                <Text
+                  sx={{
+                    color: "#ff0000",
+                    fontSize: 50,
+                    mt: "$2",
+                    fontWeight: 600,
+                  }}
+                >
+                  {get(checkinData, "face.name", "")?.toUpperCase()}
+                </Text>
+                <Text
+                  sx={{
+                    color: "#007434",
+                    fontSize: 46,
+                    mt: "$2",
+                    fontWeight: 500,
+                  }}
+                >
+                  {get(checkinData, "face.title", "")?.toUpperCase()}
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexGrow: 1,
+                flexDirection: "row",
+              }}
+            >
+              <View
+                style={{
+                  flex: 1,
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                  paddingRight: 34,
+                }}
+              >
+                <Image source={logoImg} style={{ width: 300, height: 201 }} />
+              </View>
+              <View
+                style={{ flex: 1, justifyContent: "center", paddingLeft: 32 }}
+              >
+                <AspectRatioImage
+                  uri={avatarUri}
+                  aspectWidth={300}
+                  style={{
+                    borderWidth: 1,
+                    borderColor: "#007434",
+                    backgroungColor: "red",
+                  }}
+                />
+              </View>
+            </View>
+          </>
+        ) : (
+          <View style={{ flex: 1, alignItems: "center" }}>
+            <View style={{ flex: 1, paddingTop: 32 }}>
+              <Image source={logoImg} style={{ width: 300, height: 201 }} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "#260fd1",
+                  fontSize: 50,
+                  lineHeight: 62,
+                  fontWeight: 600,
+                }}
+              >
+                {
+                  "CHÀO MỪNG ĐẠI HỘI\nĐẠI BIỂU ĐOÀN TNCS HỒ CHÍ MINH TỈNH HÀ TĨNH \nLẦN THỨ XVIII, NHIỆM KỲ 2022 - 2027"
+                }
+              </Text>
+            </View>
+            <View style={{ flex: 1, justifyContent: "flex-end" }}>
+              <Text
+                style={{
+                  alignSelf: "flex-end",
+                  color: "#260fd1",
+                  fontSize: 40,
+                  paddingBottom: 30,
+                  fontWeight: 600,
+                  fontStyle: "italic",
+                }}
+              >
+                ĐOÀN KẾT - BẢN LĨNH - KHÁT VỌNG - TIÊN PHONG - SÁNG TẠO
+              </Text>
+            </View>
+          </View>
+        )}
+      </ImageBackground>
     </View>
   );
 }
