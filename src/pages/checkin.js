@@ -39,13 +39,13 @@ export default function Checkin() {
   )}`;
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, maxWidth: '100%' }}>
       <ImageBackground
         source={backgroungImg}
         resizeMode="cover"
         style={{ flex: 1 }}
       >
-        {checkinData?.face ? (
+        {checkinData ? (
           <>
             <View sx={{ alignItems: "center", px: "$4" }}>
               <View sx={{ alignItems: "center", pt: "$5" }}>
@@ -89,7 +89,7 @@ export default function Checkin() {
                   paddingRight: 34,
                 }}
               >
-                <Image source={logoImg} style={{ width: 300, height: 201 }} />
+                {/* <Image source={logoImg} style={{ width: 300, height: 201 }} /> */}
               </View>
               <View
                 style={{ flex: 1, justifyContent: "center", paddingLeft: 32 }}
@@ -109,13 +109,13 @@ export default function Checkin() {
         ) : (
           <View style={{ flex: 1, alignItems: "center" }}>
             <View style={{ flex: 1, paddingTop: 32 }}>
-              <Image source={logoImg} style={{ width: 300, height: 201 }} />
+              {/* <Image source={logoImg} style={{ width: 300, height: 201 }} /> */}
             </View>
             <View style={{ flex: 1 }}>
-              <Text
+              {/* <Text
                 style={{
                   textAlign: "center",
-                  color: "#ff4d00",
+                  color: "#fff",
                   fontSize: 50,
                   lineHeight: 62,
                   fontWeight: 700,
@@ -125,10 +125,10 @@ export default function Checkin() {
                 {
                   "CHÀO MỪNG KỈ NIỆM\nNGÀY CHUYỂN ĐỔI SỐ QUỐC GIA"
                 }
-              </Text>
+              </Text> */}
             </View>
             <View style={{ flex: 1, justifyContent: "flex-end" }}>
-              <Text
+              {/* <Text
                 style={{
                   alignSelf: "flex-end",
                   color: "#260fd1",
@@ -139,7 +139,7 @@ export default function Checkin() {
                 }}
               >
                 ĐOÀN KẾT - BẢN LĨNH - KHÁT VỌNG - TIÊN PHONG - SÁNG TẠO
-              </Text>
+              </Text> */}
             </View>
           </View>
         )}
