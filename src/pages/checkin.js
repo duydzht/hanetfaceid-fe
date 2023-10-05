@@ -9,8 +9,8 @@ import { socket, CHECKIN_EVENT } from "../webSocket";
 import { ADD_CHECKIN } from "../store/action";
 import Webcam from "react-webcam";
 
-const backgroungImg = require("../../assets/banner-checkin-2.png");
-const logoImg = require("../../assets/logo_daihoi.png");
+const backgroungImg = require("../../assets/banner-checkin-3.jpg");
+const logoImg = require("../../assets/logo-vietFuture.svg");
 
 const styles = StyleSheet.create({
   container: {
@@ -59,41 +59,61 @@ export default function Checkin() {
   )}`;
 
   return (
-    <View style={{ flex: 1, maxWidth: "100%" }}>
+    <View
+      style={{ flex: 1, maxWidth: "100%", overflow: "hidden", height: "100vh" }}
+    >
       <ImageBackground
         source={backgroungImg}
         resizeMode="cover"
-        style={{ flex: 1 }}
+        style={{ flex: 1, height: "100%" }}
       >
         {checkinData ? (
           <>
-            <View sx={{ alignItems: "start", px: "$4" }}>
-              <View sx={{ alignItems: "start", pt: "$5" }}>
-                <Text sx={{ color: "#fff", fontSize: 38, fontWeight: 500 }}>
-                  {"CHÀO MỪNG ĐẠI BIỂU"}
+            <View sx={{ alignItems: "center", px: "$4" }}>
+              <View sx={{ alignItems: "center", pt: "$5" }}>
+                <Text
+                  sx={{
+                    color: "#ff4d00",
+                    fontSize: 44,
+                    fontWeight: 500,
+                    fontFamily: "'Times New Roman', Georgia, Serif",
+                  }}
+                >
+                  {"KÍNH MỜI ĐỒNG CHÍ "}
+                  <Text
+                  sx={{
+                    color: "#ff4d00",
+                    fontSize: 44,
+                    mt: "$2",
+                    fontWeight: 700,
+                    fontFamily: "'Times New Roman', Georgia, Serif",
+                  }}
+                >
+                  {checkinData?.personName?.toUpperCase()}
+                </Text>
                 </Text>
                 <Text
                   sx={{
                     color: "#ff4d00",
                     fontSize: 44,
                     mt: "$2",
-                    fontWeight: 700,
-                    marginTop: 80
+                    fontWeight: 500,
+                    fontFamily: "'Times New Roman', Georgia, Serif",
                   }}
                 >
-                  {/* {get(checkinData, "face.personName", "")?.toUpperCase()} */}
-                  {(checkinData?.personName)?.toUpperCase()}
+                  {checkinData.personTitle?.toUpperCase()}
                 </Text>
                 <Text
-                  sx={{
-                    color: "#007434",
-                    fontSize: 40,
+                  style={{
+                    fontSize: 44,
                     mt: "$2",
                     fontWeight: 500,
-                    marginTop: 80
+                    fontFamily: "'Times New Roman', Georgia, Serif",
+                    textAlign: "center",
+                    color: "#007434",
                   }}
                 >
-                  {(checkinData.personTitle)?.toUpperCase()}
+                  {"TRẢI NGHIỆM HỆ THỐNG NHẬN DIỆN BẰNG CÔNG NGHỆ AI"}
                 </Text>
               </View>
             </View>
@@ -130,31 +150,33 @@ export default function Checkin() {
             </View>
           </>
         ) : (
-          <View style={styles.overlay}>
+          <View style={{ height: "100%" }}>
             <View
               style={{
                 display: "flex",
-                flexDirection: "row",
-                gap: "30px",
+                flexDirection: "column",
+                height: "100%",
+                paddingTop: 100,
               }}
             >
               <View
                 style={{
-                  height: "70vh",
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: "",
                   alignItems: "center",
+                  gap: 40,
                 }}
               >
                 <Text
                   style={{
-                    textAlign: "left",
-                    color: "#fff",
-                    fontSize: 44,
+                    textAlign: "center",
+                    color: "#ff4d00",
+                    fontSize: 50,
                     lineHeight: 62,
-                    fontWeight: 700,
-                    fontFamily: "Cochin",
-                    marginLeft: 100,
+                    fontWeight: 900,
+                    fontFamily: "'Times New Roman', Georgia, Serif",
+                    // fontFamily: "'lucida grande', tahoma, verdana, arial, sans-serif",
+                    // fontFamily: "Cochin",
                   }}
                 >
                   {"CHÀO MỪNG KỶ NIỆM\nNGÀY CHUYỂN ĐỔI SỐ QUỐC GIA"}
@@ -163,35 +185,32 @@ export default function Checkin() {
             </View>
           </View>
         )}
-        <View
-          style={{
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            backgroundColor: "#fff",
-            width: 640,
-            height: 360,
-          }}
-        >
-          <Webcam
-            audio={false}
-            height={360}
-            screenshotFormat="image/jpeg"
-            width={640}
-            videoConstraints={videoConstraints}
-          >
-            {/* {({ getScreenshot }) => (
-                      <button
-                        onClick={() => {
-                          const imageSrc = getScreenshot();
-                        }}
-                      >
-                        Capture photo
-                      </button>
-                    )} */}
-          </Webcam>
+        <View>
+          <Text style={{ color: "#ff4d00", paddingLeft: '50px' }}>
+            {"Công ty cổ phần công nghệ VIETFUTURE"}
+          </Text>
         </View>
       </ImageBackground>
+      <View
+        style={{
+          marginVertical: "auto",
+          // display: "flex",
+          // alignItems: "center",
+          position: "absolute",
+          bottom: 130,
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <Webcam
+          audio={false}
+          height={360}
+          screenshotFormat="image/jpeg"
+          width={640}
+          videoConstraints={videoConstraints}
+          style={{ background: "#fff" }}
+        ></Webcam>
+      </View>
     </View>
   );
 }
